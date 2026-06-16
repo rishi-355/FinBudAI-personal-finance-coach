@@ -82,3 +82,15 @@ def calculate_financial_health_score(income: float, rent: float, entertainment: 
         status = "Needs Attention"
         
     return total_score, status
+
+def get_largest_expense_category(expenses: dict) -> tuple[str, float]:
+    """
+    Identify the category with the highest spending from a dictionary of expenses.
+    Returns a tuple of (category_name, amount).
+    """
+    if not expenses:
+        return "None", 0.0
+    # Find the max expense category
+    largest_cat = max(expenses, key=expenses.get)
+    return largest_cat, float(expenses[largest_cat])
+
