@@ -1,54 +1,186 @@
-# FinBud - AI Personal Finance Coach 💰
+# FinBud – AI Personal Finance Coach 💰🤖
 
-FinBud is a premium, modern, and interactive Streamlit web application designed to help users track their personal finances and assess their overall financial health.
+## Overview
 
-## 🚀 Features
+FinBud is an AI-powered personal finance management platform designed to help users track expenses, analyze spending habits, improve savings, and receive personalized financial recommendations using Google Gemini AI.
 
-*   **Financial Profile Input**: Set monthly income and detailed expense breakdown (Rent/Hostel, Food, Transport, Entertainment, Other).
-*   **Key Financial Metrics**:
-    *   Monthly Income
-    *   Total Expenses
-    *   Net Savings (dynamically color-coded based on positive/negative balances)
-    *   Financial Health Score (0 - 100) with a performance-based rating
-*   **Interactive Visualizations**:
-    *   **Expense Breakdown**: An interactive donut/pie chart showing how your spending is distributed.
-    *   **Financial Health Meter**: A gauge indicator highlighting your rating zone (Needs Attention, Fair, Good, Excellent).
-*   **Actionable Insights**: Instant, contextual recommendations based on key personal finance benchmarks (e.g., target 20% savings rate, housing cost limits, discretionary spend tracking).
+Built with Python, Streamlit, Plotly, and Gemini AI, FinBud provides an interactive dashboard that transforms financial data into actionable insights.
 
 ---
 
-## 🛠️ Setup & Installation
+## Features
 
-### 1. Prerequisites
-Make sure you have **Python 3.8+** installed.
+### 📊 Financial Dashboard
 
-### 2. Install Dependencies
-Navigate to the project directory and install the required packages:
+* Monthly Income Tracking
+* Expense Monitoring
+* Net Savings Calculation
+* Savings Rate Analysis
+* Financial Health Score
+
+### 📈 Expense Analysis
+
+* Interactive Expense Breakdown
+* Category-wise Spending Insights
+* Expense Distribution Charts
+* Spending Pattern Visualization
+
+### 🎯 Savings Planner
+
+* Savings Goal Tracking
+* What-If Budget Simulator
+* Financial Scenario Planning
+* Goal Achievement Recommendations
+
+### 🤖 AI Financial Coach
+
+Powered by Google Gemini AI.
+
+Generate:
+
+* Spending Analysis
+* Savings Recommendations
+* Financial Health Assessment
+* Budget Optimization Suggestions
+
+### 🎨 Modern FinTech UI
+
+* Dark FinTech Theme
+* Interactive Charts
+* Responsive Layout
+* Modern Dashboard Cards
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* Streamlit
+
+### Backend
+
+* Python
+
+### AI
+
+* Google Gemini API
+
+### Data Visualization
+
+* Plotly
+* Pandas
+
+### Version Control
+
+* Git
+* GitHub
+
+---
+
+## Project Structure
+
+```text
+FinBudAI/
+│
+├── .streamlit/
+│
+├── utils/
+│   ├── calculations.py
+│   └── gemini_service.py
+│
+├── views/
+│   ├── dashboard.py
+│   ├── expense_analysis.py
+│   ├── savings_planner.py
+│   └── ai_coach.py
+│
+├── assets/
+│   ├── dashboard.png
+│   ├── expense-analysis.png
+│   ├── savings-planner.png
+│   └── ai-coach.png
+│
+├── app.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+## Screenshots
+
+### Dashboard
+
+![Dashboard](assets/dashboard.png)
+
+### Expense Analysis
+
+![Expense Analysis](assets/expense-analysis.png)
+
+### Savings Planner
+
+![Savings Planner](assets/savings-planner.png)
+
+### AI Financial Coach
+
+![AI Coach](assets/ai-coach.png)
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd FinBudAI
+```
+
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the App
-Launch the Streamlit server:
+Create:
+
+```text
+.streamlit/secrets.toml
+```
+
+Add:
+
+```toml
+GEMINI_API_KEY = "YOUR_API_KEY"
+```
+
+Run:
 
 ```bash
 streamlit run app.py
 ```
 
-The app will open automatically in your browser. If it doesn't, navigate to the local URL shown in your console (usually `http://localhost:8501`).
+---
+
+## Resume Description
+
+Developed an AI-powered personal finance platform using Python, Streamlit, Plotly, and Google Gemini API. Implemented expense tracking, savings analysis, financial health scoring, interactive financial dashboards, and personalized AI-generated financial recommendations through a modular multi-page architecture.
 
 ---
 
-## 📂 Project Structure
+## Future Enhancements
 
-```text
-FinBudAI/
-│
-├── utils/
-│   └── calculations.py  # Core financial algorithms and health scoring
-│
-├── app.py               # Main UI and dashboard setup
-├── requirements.txt     # Python dependencies
-└── README.md            # Project overview and setup instructions
-```
+* User Authentication
+* Cloud Database Integration
+* PDF Financial Reports
+* Investment Recommendations
+* Expense History Tracking
+* Mobile Application Version
+
+---
+
+### FinBud
+
+**Smart Money. Smarter Decisions.**
