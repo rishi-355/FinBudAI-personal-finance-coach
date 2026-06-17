@@ -7,7 +7,7 @@ from utils.calculations import (
     calculate_financial_health_score
 )
 
-def render_savings_planner(income, expenses):
+def render_savings_planner(income, expenses,health_score):
     st.markdown("### 🎯 Savings Planner & Simulator")
     
     if income <= 0:

@@ -27,93 +27,110 @@ st.set_page_config(
 
 # Initialize Session State values for inputs if they do not exist
 if "income" not in st.session_state:
-    st.session_state.income = 5000.0
+    st.session_state.income = 50000.0
 if "rent" not in st.session_state:
-    st.session_state.rent = 1500.0
+    st.session_state.rent = 15000.0
 if "food" not in st.session_state:
-    st.session_state.food = 500.0
+    st.session_state.food = 8000.0
 if "transport" not in st.session_state:
-    st.session_state.transport = 300.0
+    st.session_state.transport = 3000.0
 if "entertainment" not in st.session_state:
-    st.session_state.entertainment = 400.0
+    st.session_state.entertainment = 5000.0
 if "other" not in st.session_state:
-    st.session_state.other = 300.0
+    st.session_state.other = 4000.0
 
-# ----------------- STYLING (Modern Dark Theme - CRED / Jupiter Style) -----------------
+# ----------------- STYLING (Modern Dark Fintech - CRED / Jupiter Style) -----------------
 st.markdown("""
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
-        /* Global Theme Override */
+        /* Global overrides */
         html, body, [class*="css"], .stApp {
-            font-family: 'Outfit', sans-serif;
-            background-color: #0D0F12 !important;
-            color: #E2E8F0 !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            background-color: #080A0F !important;
+            color: #F8FAFC !important;
         }
 
-        /* Sidebar styling */
+        /* Sidebar container styling */
         [data-testid="stSidebar"] {
-            background-color: #12161A !important;
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: #0D111A !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 1.5rem 1rem;
         }
 
-        /* Title styling */
-        .brand-header {
+        /* Branding logo in sidebar */
+        .sidebar-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
             font-size: 2.2rem;
-            font-weight: 700;
             background: linear-gradient(135deg, #00E5FF 0%, #8A2BE2 50%, #FF007A 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -1.5px;
             margin-bottom: 0px;
         }
         
-        .brand-subtitle {
-            font-size: 0.95rem;
+        .sidebar-tagline {
+            font-size: 0.75rem;
             color: #64748B;
-            margin-top: 0px;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Nav menu */
-        .nav-item {
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 5px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        /* Style Streamlit forms and buttons */
-        div.stButton > button {
-            background: linear-gradient(135deg, #8A2BE2 0%, #4A0E4E 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 0.5rem 1.5rem;
             font-weight: 600;
-            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-top: 0px;
+            margin-bottom: 2rem;
+        }
+
+        /* Style labels in inputs */
+        label {
+            font-weight: 500 !important;
+            color: #94A3B8 !important;
+            font-size: 0.85rem !important;
+        }
+
+        /* Input box overrides */
+        div[data-baseweb="input"] {
+            background-color: #121824 !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-radius: 10px !important;
+            color: #F8FAFC !important;
+            transition: all 0.3s ease;
+        }
+        div[data-baseweb="input"]:focus-within {
+            border-color: #00E5FF !important;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.15) !important;
+        }
+
+        /* Streamlit primary buttons */
+        div.stButton > button {
+            background: linear-gradient(135deg, #8A2BE2 0%, #00E5FF 100%) !important;
+            color: #FFFFFF !important;
+            border: none !important;
+            border-radius: 10px !important;
+            padding: 0.6rem 1.8rem !important;
+            font-weight: 600 !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            letter-spacing: 0.5px !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.25) !important;
         }
         div.stButton > button:hover {
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-            transform: translateY(-1px);
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4) !important;
         }
-        
-        /* Input fields styles */
-        div[data-baseweb="input"] {
-            background-color: #1A1F26 !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 8px !important;
+        div.stButton > button:active {
+            transform: translateY(0px) !important;
+        }
+
+        /* Hide default Streamlit visual headers */
+        #MainMenu, header, footer {
+            visibility: hidden;
         }
     </style>
 """, unsafe_allow_html=True)
 
 # ----------------- SIDEBAR BRANDING & ROUTING -----------------
-st.sidebar.markdown('<div class="brand-header">FinBud</div>', unsafe_allow_html=True)
-st.sidebar.markdown('<div class="brand-subtitle">AI Finance Buddy</div>', unsafe_allow_html=True)
+st.sidebar.markdown('<div class="sidebar-logo">FinBud</div>', unsafe_allow_html=True)
+st.sidebar.markdown('<div class="sidebar-tagline">AI Wealth Coach</div>', unsafe_allow_html=True)
 
 st.sidebar.subheader("Navigation")
 menu_selection = st.sidebar.radio(
@@ -122,7 +139,7 @@ menu_selection = st.sidebar.radio(
         "🏛️ Dashboard",
         "📈 Expense Analysis",
         "🎯 Savings Planner",
-        "🤖 AI Coach (Preview)"
+        "🤖 AI Coach (Gemini)"
     ],
     label_visibility="collapsed"
 )
@@ -131,14 +148,14 @@ st.sidebar.markdown("---")
 st.sidebar.subheader("👤 Financial Profile")
 
 # Data Entry Inputs bound directly to session state
-income = st.sidebar.number_input("Monthly Income (₹)", min_value=0.0, step=100.0, key="income")
+income = st.sidebar.number_input("Monthly Income (₹)", min_value=0.0, step=1000.0, key="income")
 
 st.sidebar.markdown("**Monthly Expenses:**")
-rent = st.sidebar.number_input("Rent / Hostel (₹)", min_value=0.0, step=50.0, key="rent")
-food = st.sidebar.number_input("Food (₹)", min_value=0.0, step=25.0, key="food")
-transport = st.sidebar.number_input("Transport (₹)", min_value=0.0, step=10.0, key="transport")
-entertainment = st.sidebar.number_input("Entertainment (₹)", min_value=0.0, step=25.0, key="entertainment")
-other = st.sidebar.number_input("Other (₹)", min_value=0.0, step=20.0, key="other")
+rent = st.sidebar.number_input("Rent / Hostel (₹)", min_value=0.0, step=500.0, key="rent")
+food = st.sidebar.number_input("Food (₹)", min_value=0.0, step=500.0, key="food")
+transport = st.sidebar.number_input("Transport (₹)", min_value=0.0, step=200.0, key="transport")
+entertainment = st.sidebar.number_input("Entertainment (₹)", min_value=0.0, step=500.0, key="entertainment")
+other = st.sidebar.number_input("Other (₹)", min_value=0.0, step=500.0, key="other")
 
 # ----------------- CENTRAL CALCULATIONS -----------------
 expenses_dict = {
@@ -176,10 +193,11 @@ elif menu_selection == "📈 Expense Analysis":
 elif menu_selection == "🎯 Savings Planner":
     render_savings_planner(
         income=income,
-        expenses=expenses_dict
+        expenses=expenses_dict,
+        health_score=health_score
     )
 
-elif menu_selection == "🤖 AI Coach (Preview)":
+elif menu_selection == "🤖 AI Coach (Gemini)":
     render_ai_coach(
         income=income,
         expenses=expenses_dict,
