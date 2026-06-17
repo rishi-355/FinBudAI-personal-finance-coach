@@ -120,6 +120,43 @@ st.markdown("""
         div.stButton > button:active {
             transform: translateY(0px) !important;
         }
+            /* ===== SIDEBAR NAVIGATION COLORS ===== */
+
+/* Navigation heading */
+[data-testid="stSidebar"] h3 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+/* Radio button text */
+[data-testid="stSidebar"] .stRadio label {
+    color: #E2E8F0 !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+/* Sidebar text */
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] div {
+    color: #E2E8F0;
+}
+
+/* Financial Profile heading */
+[data-testid="stSidebar"] h2 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+/* Input labels */
+[data-testid="stSidebar"] label {
+    color: #CBD5E1 !important;
+}
+
+/* Hover effect */
+[data-testid="stSidebar"] .stRadio label:hover {
+    color: #00E5FF !important;
+}
 
         /* Hide default Streamlit visual headers */
         #MainMenu, header, footer {
